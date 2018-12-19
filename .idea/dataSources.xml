@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="hibernatetest@bjcreslin.ru" uuid="ef10e180-d54c-4fe9-856b-0f7cc414d229">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://bjcreslin.ru/hibernatetest</jdbc-url>
+    </data-source>
+  </component>
+</project>
