@@ -29,8 +29,9 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="connection.url">jdbc:postgresql://bjcreslin.ru/hibernatetest</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <mapping class="entities.LogisttableEntity"/>
         <mapping class="entities.ItemtableEntity"/>
+        <mapping class="entities.LogisttableEntity"/>
+        <mapping class="entities.GrouptableEntity"/>
 
     </session-factory>
 </hibernate-configuration>

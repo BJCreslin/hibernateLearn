@@ -13,6 +13,11 @@ public class Solution {
         logisttableEntity.setPhone(416);
         session.save(logisttableEntity);
         session.getTransaction().commit();
+
+
+
+
+
         session.close();
     }
 }

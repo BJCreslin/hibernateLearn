@@ -68,11 +68,8 @@ public class LogisttableEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LogisttableEntity that = (LogisttableEntity) o;
-        return id == that.id &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(secondname, that.secondname) &&
-                Objects.equals(email, that.email) &&
-                Objects.equals(phone, that.phone);
+        return Objects.equals(name, that.name) &&
+                Objects.equals(secondname, that.secondname);
     }
 
     @Override

@@ -64,8 +64,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2018-12-19.17:10:57.985</IntrospectionTimestamp>
-      <IntrospectionStateNumber>697</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-12-20.16:11:05.709</IntrospectionTimestamp>
+      <IntrospectionStateNumber>712</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -94,14 +94,22 @@
       <Comment>block range index (BRIN) access method</Comment>
     </access-method>
     <sequence id="19" parent="12" name="itemtable_id_seq">
-      <ObjectId>16491</ObjectId>
+      <ObjectId>16555</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>695</StateNumber>
+      <StateNumber>712</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="20" parent="12" name="logisttable_id_seq">
+    <sequence id="20" parent="12" name="grouptable_id_seq">
+      <ObjectId>16539</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>710</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="21" parent="12" name="logisttable_id_seq">
       <ObjectId>16482</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>689</StateNumber>
@@ -109,95 +117,132 @@
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <table id="21" parent="12" name="itemtable">
-      <ObjectId>16493</ObjectId>
+    <table id="22" parent="12" name="grouptable">
+      <ObjectId>16541</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>695</StateNumber>
+      <StateNumber>712</StateNumber>
     </table>
-    <table id="22" parent="12" name="logisttable">
+    <table id="23" parent="12" name="itemtable">
+      <ObjectId>16557</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>712</StateNumber>
+    </table>
+    <table id="24" parent="12" name="logisttable">
       <ObjectId>16484</ObjectId>
       <Comment>таблица логистов</Comment>
       <Owner>postgres</Owner>
-      <StateNumber>695</StateNumber>
+      <StateNumber>710</StateNumber>
     </table>
-    <column id="23" parent="21" name="id">
+    <column id="25" parent="22" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>695</StateNumber>
-      <DefaultExpression>nextval(&apos;itemtable_id_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>710</StateNumber>
+      <DefaultExpression>nextval(&apos;grouptable_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
-      <SequenceName>itemtable_id_seq</SequenceName>
+      <SequenceName>grouptable_id_seq</SequenceName>
     </column>
-    <column id="24" parent="21" name="code">
+    <column id="26" parent="22" name="name">
       <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>695</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="25" parent="21" name="name">
-      <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>695</StateNumber>
+      <StateNumber>710</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="26" parent="21" name="logist">
-      <Position>4</Position>
-      <DataType>logisttable|0s</DataType>
-      <StateNumber>695</StateNumber>
-      <TypeId>16486</TypeId>
-    </column>
-    <column id="27" parent="21" name="needed">
-      <Position>5</Position>
+    <column id="27" parent="22" name="logist_id">
+      <Position>3</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>695</StateNumber>
+      <StateNumber>710</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="28" parent="21" name="central">
-      <Position>6</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>695</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="29" parent="21" name="vystavka">
-      <Position>7</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>695</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="30" parent="21" name="itemtable_id_uindex">
-      <ObjectId>16507</ObjectId>
+    <index id="28" parent="22" name="grouptable_pkey">
+      <ObjectId>16548</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="31" parent="21" name="itemtable_pkey">
-      <ObjectId>16500</ObjectId>
+    <key id="29" parent="22" name="grouptable_pkey">
+      <ObjectId>16549</ObjectId>
       <ColNames>id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <index id="32" parent="21" name="itemtable_code_uindex">
-      <ObjectId>16508</ObjectId>
-      <ColNames>code</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="33" parent="21" name="itemtable_pkey">
-      <ObjectId>16501</ObjectId>
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>itemtable_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>grouptable_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="34" parent="21" name="itemtable_logisttable_id_fk">
-      <ObjectId>16502</ObjectId>
-      <ColNames>id</ColNames>
+    <foreign-key id="30" parent="22" name="grouptable_logist_id_fkey">
+      <ObjectId>16550</ObjectId>
+      <ColNames>logist_id</ColNames>
       <RefTableId>16484</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>logisttable</RefTableName>
       <RefKeyName>logisttable_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="35" parent="22" name="id">
+    <column id="31" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>712</StateNumber>
+      <DefaultExpression>nextval(&apos;itemtable_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>itemtable_id_seq</SequenceName>
+    </column>
+    <column id="32" parent="23" name="code">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>712</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="33" parent="23" name="name">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>712</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="34" parent="23" name="needed">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>712</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="35" parent="23" name="central">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>712</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="36" parent="23" name="vystavka">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>712</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="37" parent="23" name="group_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>712</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="38" parent="23" name="itemtable_pkey">
+      <ObjectId>16564</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="39" parent="23" name="itemtable_pkey">
+      <ObjectId>16565</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>itemtable_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="23" name="itemtable_group_id_fkey">
+      <ObjectId>16566</ObjectId>
+      <ColNames>group_id</ColNames>
+      <RefTableId>16541</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>grouptable</RefTableName>
+      <RefKeyName>grouptable_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="41" parent="24" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -206,41 +251,41 @@
       <TypeId>23</TypeId>
       <SequenceName>logisttable_id_seq</SequenceName>
     </column>
-    <column id="36" parent="22" name="name">
+    <column id="42" parent="24" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>689</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="37" parent="22" name="secondname">
+    <column id="43" parent="24" name="secondname">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>689</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="38" parent="22" name="email">
+    <column id="44" parent="24" name="email">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>689</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="39" parent="22" name="phone">
+    <column id="45" parent="24" name="phone">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>689</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="40" parent="22" name="logisttable_id_uindex">
+    <index id="46" parent="24" name="logisttable_id_uindex">
       <ObjectId>16490</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="41" parent="22" name="logisttable_pkey">
+    <index id="47" parent="24" name="logisttable_pkey">
       <ObjectId>16488</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="42" parent="22" name="logisttable_pkey">
+    <key id="48" parent="24" name="logisttable_pkey">
       <ObjectId>16489</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>logisttable_pkey</UnderlyingIndexName>

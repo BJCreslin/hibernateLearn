@@ -9,13 +9,14 @@ public class ItemtableEntity {
     private int id;
     private int code;
     private String name;
-    private Object logist;
     private Integer needed;
     private Integer central;
     private Integer vystavka;
+    private GrouptableEntity grouptableByGroupId;
 
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -42,16 +43,6 @@ public class ItemtableEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @Basic
-    @Column(name = "logist", nullable = true)
-    public Object getLogist() {
-        return logist;
-    }
-
-    public void setLogist(Object logist) {
-        this.logist = logist;
     }
 
     @Basic
@@ -89,17 +80,21 @@ public class ItemtableEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemtableEntity that = (ItemtableEntity) o;
-        return id == that.id &&
-                code == that.code &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(logist, that.logist) &&
-                Objects.equals(needed, that.needed) &&
-                Objects.equals(central, that.central) &&
-                Objects.equals(vystavka, that.vystavka);
+        return  code == that.code;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, code, name, logist, needed, central, vystavka);
+        return Objects.hash(id, code, name, needed, central, vystavka);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "group_id", referencedColumnName = "id")
+    public GrouptableEntity getGrouptableByGroupId() {
+        return grouptableByGroupId;
+    }
+
+    public void setGrouptableByGroupId(GrouptableEntity grouptableByGroupId) {
+        this.grouptableByGroupId = grouptableByGroupId;
     }
 }
