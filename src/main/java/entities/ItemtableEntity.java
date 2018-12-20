@@ -14,9 +14,23 @@ public class ItemtableEntity {
     private Integer vystavka;
     private GrouptableEntity grouptableByGroupId;
 
+    public ItemtableEntity() {
+    }
+
+    public ItemtableEntity(int code, Integer needed, String name) {
+        this.code = code;
+        this.name = name;
+        this.needed = needed;
+    }
+
+    public ItemtableEntity(int code, Integer needed) {
+        this.code = code;
+        this.needed = needed;
+    }
+
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -80,7 +94,7 @@ public class ItemtableEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemtableEntity that = (ItemtableEntity) o;
-        return  code == that.code;
+        return code == that.code;
     }
 
     @Override
