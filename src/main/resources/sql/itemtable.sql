@@ -13,3 +13,11 @@ create table if not exists itemtable
 )
 ;
 
+TRUNCATE TABLE public.itemtable
+CONTINUE IDENTITY
+RESTRICT
+;
+
+ALTER TABLE public.itemtable DROP CONSTRAINT itemtable_pkey
+;
+

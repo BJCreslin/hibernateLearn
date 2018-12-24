@@ -64,8 +64,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2018-12-20.16:11:05.709</IntrospectionTimestamp>
-      <IntrospectionStateNumber>712</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-12-24.17:19:28.657</IntrospectionTimestamp>
+      <IntrospectionStateNumber>7803</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -93,18 +93,18 @@
       <ObjectId>3580</ObjectId>
       <Comment>block range index (BRIN) access method</Comment>
     </access-method>
-    <sequence id="19" parent="12" name="itemtable_id_seq">
-      <ObjectId>16555</ObjectId>
+    <sequence id="19" parent="12" name="grouptable_id_seq">
+      <ObjectId>16539</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>712</StateNumber>
+      <StateNumber>710</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="20" parent="12" name="grouptable_id_seq">
-      <ObjectId>16539</ObjectId>
+    <sequence id="20" parent="12" name="itemtable_id_seq">
+      <ObjectId>16555</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>710</StateNumber>
+      <StateNumber>7771</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
@@ -125,7 +125,7 @@
     <table id="23" parent="12" name="itemtable">
       <ObjectId>16557</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>712</StateNumber>
+      <StateNumber>7803</StateNumber>
     </table>
     <table id="24" parent="12" name="logisttable">
       <ObjectId>16484</ObjectId>
@@ -222,18 +222,7 @@
       <StateNumber>712</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="38" parent="23" name="itemtable_pkey">
-      <ObjectId>16564</ObjectId>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="39" parent="23" name="itemtable_pkey">
-      <ObjectId>16565</ObjectId>
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>itemtable_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="40" parent="23" name="itemtable_group_id_fkey">
+    <foreign-key id="38" parent="23" name="itemtable_group_id_fkey">
       <ObjectId>16566</ObjectId>
       <ColNames>group_id</ColNames>
       <RefTableId>16541</RefTableId>
@@ -242,7 +231,7 @@
       <RefKeyName>grouptable_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="41" parent="24" name="id">
+    <column id="39" parent="24" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -251,41 +240,41 @@
       <TypeId>23</TypeId>
       <SequenceName>logisttable_id_seq</SequenceName>
     </column>
-    <column id="42" parent="24" name="name">
+    <column id="40" parent="24" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>689</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="24" name="secondname">
+    <column id="41" parent="24" name="secondname">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>689</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="44" parent="24" name="email">
+    <column id="42" parent="24" name="email">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>689</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="45" parent="24" name="phone">
+    <column id="43" parent="24" name="phone">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>689</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="46" parent="24" name="logisttable_id_uindex">
+    <index id="44" parent="24" name="logisttable_id_uindex">
       <ObjectId>16490</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="47" parent="24" name="logisttable_pkey">
+    <index id="45" parent="24" name="logisttable_pkey">
       <ObjectId>16488</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="48" parent="24" name="logisttable_pkey">
+    <key id="46" parent="24" name="logisttable_pkey">
       <ObjectId>16489</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>logisttable_pkey</UnderlyingIndexName>

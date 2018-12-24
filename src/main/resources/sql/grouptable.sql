@@ -8,3 +8,5 @@ create table if not exists grouptable
 	  FOREIGN KEY (logist_id) REFERENCES logisttable(id)
 )
 ;
+
+
